@@ -18,32 +18,43 @@ let mapleader=" "
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
+" Themes
+" Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 
+" Status bar at bottom
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'eugen0329/vim-esearch'
 
+" Git integration
 Plug 'tpope/vim-fugitive'
 
+" Code completetion | Doesnt work correctly Requires python3
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " let g:deoplete#enable_at_startup = 1
   " use tab for completion
   " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+" Language support
 Plug 'sheerun/vim-polyglot'
 
+" File browser. Start with :NERTDTreeToggle
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Code commenter
 Plug 'scrooloose/nerdcommenter'
 
+" Vim navigation in Rails
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 
+" Vim navigation in Phoenix
 Plug 'c-brenn/phoenix.vim'
 Plug 'tpope/vim-projectionist' " required for some navigation features
 
+" Copy pase with OC, OP, OX
 Plug 'NLKNguyen/copy-cut-paste.vim'
 
 " Remove trailing whitespace with :FixWhitespace
