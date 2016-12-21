@@ -45,8 +45,21 @@ Plug 'c-brenn/phoenix.vim'
 Plug 'tpope/vim-projectionist' " required for some navigation features
 
 Plug 'NLKNguyen/copy-cut-paste.vim'
+
 " Remove trailing whitespace with :FixWhitespace
 Plug 'bronson/vim-trailing-whitespace'
+
+" Multiple Cursors with Ctrl-n
+Plug 'terryma/vim-multiple-cursors'
+
+" Run Rails specs with leader-r | Doesnt seem to work properly
+Plug 'skalnik/vim-vroom'
+
+" lets you zoom into a window and out again using Ctrl-W o
+Plug 'vim-scripts/ZoomWin'
+
+"  list, select and switch between buffers Leader-b
+Plug 'jeetsukumaran/vim-buffergator'
 
 call plug#end()
 
