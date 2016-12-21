@@ -19,6 +19,7 @@ let mapleader=" "
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -28,6 +29,9 @@ Plug 'eugen0329/vim-esearch'
 Plug 'tpope/vim-fugitive'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " let g:deoplete#enable_at_startup = 1
+  " use tab for completion
+  " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 Plug 'sheerun/vim-polyglot'
 
@@ -41,6 +45,8 @@ Plug 'c-brenn/phoenix.vim'
 Plug 'tpope/vim-projectionist' " required for some navigation features
 
 Plug 'NLKNguyen/copy-cut-paste.vim'
+" Remove trailing whitespace with :FixWhitespace
+Plug 'bronson/vim-trailing-whitespace'
 
 call plug#end()
 
@@ -50,7 +56,7 @@ call plug#end()
 
 set background=dark
 syntax enable
-colorscheme solarized
+colorscheme molokai
 
 let NERDTreeHijackNetrw = 1
 let g:NERDTreeWinPos = "right"
@@ -122,3 +128,9 @@ set wildignore+=*.swp,*~,._*
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
 
+""
+"" Deoplete
+""
+let g:deoplete#enable_at_startup = 1
+" use tab for completion
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
