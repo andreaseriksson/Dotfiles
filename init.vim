@@ -37,6 +37,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " let g:deoplete#enable_at_startup = 1
   " use tab for completion
   " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+Plug 'ervandew/supertab'
 
 " Language support
 Plug 'sheerun/vim-polyglot'
