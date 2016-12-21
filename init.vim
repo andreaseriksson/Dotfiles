@@ -26,6 +26,7 @@ Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Search with Leader-ff
 Plug 'eugen0329/vim-esearch'
 
 " Git integration
@@ -69,8 +70,11 @@ Plug 'skalnik/vim-vroom'
 " lets you zoom into a window and out again using Ctrl-W o
 Plug 'vim-scripts/ZoomWin'
 
-"  list, select and switch between buffers Leader-b
+" list, select and switch between buffers Leader-b
 Plug 'jeetsukumaran/vim-buffergator'
+
+" Fuzzy file opener with Ctrl-p
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -158,3 +162,7 @@ set directory^=~/.vim/_temp//      " where to put swap files.
 let g:deoplete#enable_at_startup = 1
 " use tab for completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+
+
+" vnoremap c 5k
