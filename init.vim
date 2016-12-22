@@ -77,6 +77,9 @@ Plug 'jeetsukumaran/vim-buffergator'
 " Fuzzy file opener with Ctrl-p
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Test runner
+Plug 'janko-m/vim-test'
+
 call plug#end()
 
 ""
