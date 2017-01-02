@@ -12,6 +12,21 @@ set cursorline
 set title
 let mapleader=" "
 
+nnoremap <S-k> 5k
+nnoremap <S-j> 5j
+nnoremap <S-L> W
+nnoremap <S-h> B
+
+nnoremap <S-Up> 5k
+nnoremap <S-Down> 5j
+nnoremap <S-Right> W
+nnoremap <A-Right> $
+nnoremap <S-Left> B
+nnoremap <A-Left> ^
+
+nnoremap <Leader>d diw
+nnoremap <Leader>c bye
+
 ""
 "" Plugins
 ""
