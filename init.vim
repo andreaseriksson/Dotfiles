@@ -1,3 +1,11 @@
+" TODOS:
+" https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+" https://github.com/bitboxer/dotfiles/blob/master/tilde/config/nvim/init.vim
+" Add plugins with:
+" :PlugInstall
+"
+"
+"
 ""
 "" Basic Setup
 ""
@@ -10,27 +18,50 @@ set encoding=utf-8    " Set default encoding to UTF-8
 set mouse=a           " Use mouse
 set cursorline
 set title
+set noswapfile        " I don't like Swapfiles
+set nobackup          " Don't make a backup before overwriting a file.
+set nowritebackup     " As above
 let mapleader=" "
-
+"let g:python_host_prog = "/usr/bin/python"
+"let g:loaded_python_provider = 1
+"let g:python_host_skip_check = 1
+"let g:python3_host_prog = "/usr/local/lib/python3.5"
+""
+"" Movement
+""
 nnoremap <S-k> 5k
 nnoremap <S-j> 5j
 nnoremap <S-L> W
 nnoremap <S-h> B
 
 nnoremap <S-Up> 5k
+vnoremap <S-Up> 5k
 nnoremap <S-Down> 5j
+vnoremap <S-Down> 5j
 nnoremap <S-Right> W
-nnoremap <A-Right> $
+vnoremap <S-Right> W
 nnoremap <S-Left> B
-nnoremap <A-Left> ^
+vnoremap <S-Left> B
+nnoremap <Leader>. $
+nnoremap <M-Right> $
+nnoremap <Leader>, ^
+nnoremap <D-Left> ^
 
 nnoremap <Leader>d diw
 nnoremap <Leader>c bye
 
+" Move lines up and down with ALT+k\j
+nnoremap √ :m .+1<CR>==
+nnoremap ª :m .-2<CR>==
+inoremap √ <Esc>:m .+1<CR>==gi
+inoremap ª <Esc>:m .-2<CR>==gi
+vnoremap √ :m '>+1<CR>gv=gv
+vnoremap ª :m '<-2<CR>gv=gv
+
+
 ""
 "" Plugins
 ""
-
 call plug#begin('~/.config/nvim/plugged')
 
 " Themes
@@ -47,8 +78,9 @@ Plug 'eugen0329/vim-esearch'
 " Git integration
 Plug 'tpope/vim-fugitive'
 
+"Plug 'slashmili/alchemist.vim'
 " Code completetion | Doesnt work correctly Requires python3
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " let g:deoplete#enable_at_startup = 1
   " use tab for completion
   " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -71,7 +103,7 @@ Plug 'tpope/vim-bundler'
 Plug 'c-brenn/phoenix.vim'
 Plug 'tpope/vim-projectionist' " required for some navigation features
 
-" Copy pase with OC, OP, OX
+" Copy pase with QC, QP, QX
 Plug 'NLKNguyen/copy-cut-paste.vim'
 
 " Remove trailing whitespace with :FixWhitespace
@@ -95,6 +127,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Test runner
 Plug 'janko-m/vim-test'
 
+" Allows you to visually select increasingly larger regions of text using
+Plug 'terryma/vim-expand-region'
+
 call plug#end()
 
 ""
@@ -102,7 +137,7 @@ call plug#end()
 ""
 
 set background=dark
-syntax enable
+set syntax=on
 colorscheme molokai
 
 let NERDTreeHijackNetrw = 1
@@ -112,7 +147,6 @@ let g:airline_theme='simple'
 ""
 "" Whitespace
 ""
-
 set nowrap                        " don't wrap lines
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
@@ -136,17 +170,15 @@ set listchars+=precedes:<         " The character to show in the last column whe
 ""
 "" Searching
 ""
-
 set hlsearch         " highlight matches
 set incsearch        " incremental searching
 set ignorecase       " searches are case insensitive...
 set smartcase        " ... unless they contain at least one capital letter
-map <CR> :noh<CR>    " stop highlighting on enter
+map <CR> :noh<CR>    " stop highlighting on enter after search
 
 ""
 "" Wild settings
 ""
-
 " TODO: Investigate the precise meaning of these settings
 " set wildmode=list:longest,list:full
 
@@ -171,7 +203,6 @@ set wildignore+=*.swp,*~,._*
 ""
 "" Backup and swap files
 ""
-
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
 
@@ -182,6 +213,20 @@ let g:deoplete#enable_at_startup = 1
 " use tab for completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+""
+"" NERDcommenter
+""
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Use ALT-c to toggle comment
+nnoremap ç :call NERDComment(0,"toggle")<CR>
+vnoremap ç :call NERDComment(0,"toggle")<CR>
 
-
-" vnoremap c 5k
